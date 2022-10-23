@@ -18,6 +18,7 @@ public class MensajeApp {
     public static void main(String[] args) throws SQLException {
         
         conexionDB();
+        
         menuMensaje();
         
 
@@ -26,7 +27,7 @@ public class MensajeApp {
     public static void conexionDB() {
          ConnectionToMysql conexion = new ConnectionToMysql();
          
-        try(Connection cnx = conexion.get_conection()){
+        try(Connection cnx = conexion.doConnetion()){
         }catch(Exception e) {
             System.out.println(e);
         }
