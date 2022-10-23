@@ -34,7 +34,6 @@ public class MensajeApp {
         try{
             
             conexion.doConnetion();
-            conexion.closeConnetion();
             
         }catch(Exception e) {
             System.out.println(e);
