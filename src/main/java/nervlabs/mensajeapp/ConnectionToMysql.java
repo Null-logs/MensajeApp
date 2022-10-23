@@ -4,6 +4,7 @@
  */
 package nervlabs.mensajeapp;
 
+import java.awt.HeadlessException; // en observación
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,7 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author NervLabs
  */
+
+
 public class ConnectionToMysql {
+    
+    private ConnectionToMysql(){
+        
+    }
+    
     
     //variable que almacena el estado de la conexion de la base de datos
     private static Connection connection;
@@ -36,7 +44,7 @@ public class ConnectionToMysql {
             
             return connection;
             
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
              JOptionPane.showMessageDialog(null,"Erro: " + e);
              System.exit(0);
         }
@@ -44,19 +52,29 @@ public class ConnectionToMysql {
         return connection;
         
     }
-
-//            Antiguo metodo de conexion    
-//            public Connection get_conection(){
-//            Connection conection = null;
-//            try{
-//                conection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mensajeApp","root","12345");
-//                if(conection != null){
-//                    System.out.println("Conexion exitosa con docker nu n");
-//                }    
-//            }catch(SQLException e){
-//                System.out.println(e);
-//            }
-//            return conection;
-//}
+    
+    
+    public void closeConnetion () throws SQLException{
+         
+         try {
+             connection.close();
+             JOptionPane.showMessageDialog(null,"DESCONEXIÓN");
+             
+         } catch (SQLException e) {
+             JOptionPane.showMessageDialog(null,"Erro: " + e);
+             connection.close();
+         } finally {
+             connection.close();
+         }
+         
+     }
+    
+    //patron singleton
+    public static ConnectionToMysql getInstance(){
+        
+        if(instancia == null){
+            instancia = new ConnectionToMysql ();
+        }
+        return instancia;
+    }
 }
-            

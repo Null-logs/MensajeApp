@@ -14,20 +14,28 @@ import javax.swing.JOptionPane;
  * @author NervLabs
  */
 public class MensajeApp {
+    
+    
 
     public static void main(String[] args) throws SQLException {
         
-        conexionDB();
+        ConnectionToMysql conexion = ConnectionToMysql.getInstance();
+        
+        conexionDB(conexion);
         
         menuMensaje();
         
 
     }
     
-    public static void conexionDB() {
-         ConnectionToMysql conexion = new ConnectionToMysql();
+    public static void conexionDB(ConnectionToMysql conexion) {
          
-        try(Connection cnx = conexion.doConnetion()){
+         
+        try{
+            
+            conexion.doConnetion();
+            conexion.closeConnetion();
+            
         }catch(Exception e) {
             System.out.println(e);
         }
