@@ -11,18 +11,18 @@ package nervlabs.mensajeapp;
 public class MensajeService {
     
     public static void crearMensaje(){
-        
+        System.out.println("public static void crearMensaje()");
     }
     
     public static void listaMensaje(){
-        
+        System.out.println("public static void listaMensaje()");
     }
  
     public static void borarMensaje(){
-        
+        System.out.println("public static void borarMensaje()");
     }
     
     public static void editarMensaje(){
-        
+        System.out.println("public static void editarMensaje()");
     }
 }
