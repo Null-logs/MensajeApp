@@ -7,6 +7,8 @@ package nervlabs.mensajeapp;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,13 +17,22 @@ import java.sql.SQLException;
 public class MensajeApp {
 
     public static void main(String[] args) throws SQLException {
-        System.out.println("Hello World!");
+        
+        
+        Scanner sc = new Scanner(System.in);
+       
+        String [] menuMensaje ={"Nuevo Mensaje","Ver Mensajes","Editar un Mensaje","Eliminar Mensajes", "Salir"}; 
+        String opcion = (String) JOptionPane.showInputDialog(null,"Selecciona una opción", "Elegir",JOptionPane.QUESTION_MESSAGE,null,menuMensaje, menuMensaje[0]);
+        
+        System.out.println();
         
         ConnectionToMysql conexion = new ConnectionToMysql();
         
         try(Connection cnx = conexion.get_conection()){
         }catch(Exception e) {
             System.out.println(e);
+        }
+        
     }
-}
+    
 }
