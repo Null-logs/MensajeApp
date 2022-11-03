@@ -30,11 +30,8 @@ public class MensajeApp {
     
     public static void conexionDB(ConnectionToMysql conexion) {
          
-         
         try{
-            
-            conexion.doConnetion();
-            
+            conexion.doConnetion(); 
         }catch(Exception e) {
             System.out.println(e);
         }

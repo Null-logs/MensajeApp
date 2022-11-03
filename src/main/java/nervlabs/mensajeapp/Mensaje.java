@@ -9,29 +9,18 @@ package nervlabs.mensajeapp;
  * @author NervLabs
  */
 public class Mensaje {
-    int id_mensaje;
+    int idMensaje;
     String mensaje;
-    String autor_mensaje;
-    String fecha_mensjae;
+    String autorMensaje;
+    String fechaMensjae;
     
     public Mensaje (){
     
 }
 
-    public Mensaje(String mensaje, String autor_mensaje, String fecha_mensjae) {
+    public Mensaje(String mensaje, String autorMensaje) {
         this.mensaje = mensaje;
-        this.autor_mensaje = autor_mensaje;
-        this.fecha_mensjae = fecha_mensjae;
-    }
-    
-
-    
-    public int getId_mensaje() {
-        return id_mensaje;
-    }
-
-    public void setId_mensaje(int id_mensaje) {
-        this.id_mensaje = id_mensaje;
+        this.autorMensaje = autorMensaje;
     }
 
     public String getMensaje() {
@@ -42,22 +31,13 @@ public class Mensaje {
         this.mensaje = mensaje;
     }
 
-    public String getAutor_mensaje() {
-        return autor_mensaje;
+    public String getAutorMensaje() {
+        return autorMensaje;
     }
 
-    public void setAutor_mensaje(String autor_mensaje) {
-        this.autor_mensaje = autor_mensaje;
+    public void setAutorMensaje(String autorMensaje) {
+        this.autorMensaje = autorMensaje;
     }
-
-    public String getFecha_mensjae() {
-        return fecha_mensjae;
-    }
-
-    public void setFecha_mensjae(String fecha_mensjae) {
-        this.fecha_mensjae = fecha_mensjae;
-    }
-    
     
     
 }

@@ -4,6 +4,8 @@
  */
 package nervlabs.mensajeapp;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author NervLabs
@@ -12,6 +14,16 @@ public class MensajeService {
     
     public static void crearMensaje(){
         System.out.println("public static void crearMensaje()");
+        
+        Mensaje tuplaNueva = new Mensaje();
+//        
+//        String nombre="";
+//        nombre=JOptionPane.showInputDialog("Escribe tu nombre");
+//        
+        tuplaNueva.setAutorMensaje(JOptionPane.showInputDialog("Escribe tu nombre"));
+        tuplaNueva.setMensaje(JOptionPane.showInputDialog("Escribe tu mensaje"));
+        
+        MensajeDAO.crearMensajeDB(tuplaNueva);
     }
     
     public static void listaMensaje(){
