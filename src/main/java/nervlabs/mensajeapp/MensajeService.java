@@ -5,6 +5,7 @@
 package nervlabs.mensajeapp;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,8 +27,9 @@ public class MensajeService {
         MensajeDAO.crearMensajeDB(tuplaNueva);
     }
     
-    public static void listaMensaje(){
+    public static DefaultTableModel listaMensaje(){
         System.out.println("public static void listaMensaje()");
+        return MensajeDAO.leerMensajeDB();
     }
  
     public static void borarMensaje(){

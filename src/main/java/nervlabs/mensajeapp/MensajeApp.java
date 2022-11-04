@@ -24,7 +24,6 @@ public class MensajeApp {
         conexionDB(conexion);
         
         menuMensaje();
-        
 
     }
     
@@ -64,7 +63,11 @@ public class MensajeApp {
         
         switch (opcionInt) {
             case 0 -> MensajeService.crearMensaje();
-            case 1 -> MensajeService.listaMensaje();
+            case 1 -> {
+                MensajeService.listaMensaje();
+                GUI nuevaGui = new GUI();
+                nuevaGui.setVisible(true);
+            }
             case 2 -> MensajeService.editarMensaje();
             case 3 -> MensajeService.borarMensaje();
             default -> System.exit(0);
